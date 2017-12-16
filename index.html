@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<link href="style.css" rel="stylesheet">
+<title >X.ch</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular-route.min.js"></script>
+<script src="https://vk.com/js/api/openapi.js?151"></script>
+ <script src="https://cdn.jsdelivr.net/ngstorage/0.3.6/ngStorage.min.js"></script>
+<script src="script.js"></script>
+<script src="load.js"></script>
+<script src="loadmsg.js"></script>
+</head>
+<body ng-app="myApp"  ng-controller="Navigation">
+<header>
+  <a href=#! >
+<h1 class="xch">
+X.ch
+</h1>
+</a>
+<p class="hello">Добро пожаловать.Снова.
+</p>
+<hr>
+</header>
+<section>
+<article class="content">
+   <a class="links" ng-repeat="link in links" href={{link.url}}>{{link.name}}</a>
+</article>
+<hr>
+
+<div ng-view></div>
+<footer class="adminPanel">
+<span ng-click='Login()'>admin</span>
+</footer>
+</section>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<div ng-controller="loadmsg">
+  <div class="mainmsg">
+  <b>Тред#{{thred.Number}}</b>  Аноним {{thred.Date}}
+  <br>
+  <br>
+  {{thred.msg}}
+</div>
+  <div ng-repeat="msg in thred.msgs" >
+    <div class="ans" ng-if="msg.text!=null">
+    <b>Аноним</b>  {{msg.date}}  {{msg.time}}  <button ng-if="Admin()" ng-click="delMsg(thred.Number,msg.text)">X</button><br>
+    {{msg.text}}
+  </div>
+</div>
+  <hr>
+  <div align="center">
+  <textarea cols="40" rows="8" placeholder="Введите сообщение..." ng-model="msgText" ></textarea> <br>
+  <input type="button" value="Отправить" ng-click="sendMessage(msgText)" ng-disabled="isEmpty1(msgText)||isPost">
+</div>
+</div>

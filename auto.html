@@ -1,0 +1,31 @@
+<div ng-controller='Load'>
+  <div align='center'>
+    <h1  class="label">{{Thread}}</h1>
+    <hr>
+    <p class="create" ng-click="show()"><span class="brack">[</span> Создать тред <span class="brack">]</span></p>
+    <div class="createT" ng-if="isCreate">
+      <textarea cols="40" rows="8" placeholder="Введите сообщение..." ng-model="text"></textarea> <br>
+      <input type="button" value="Создать" ng-click="createThread(curThread,text)" ng-disabled="isEmpty1(text)||isPosted">
+    </div>
+    <hr>
+  </div>
+  <section>
+    <div ng-repeat="thrd in thrds" class="thread">
+      <div class="mainmsg">
+      <b>Тред#{{thrd.Number}}  Аноним {{thrd.Date}} </b> <a href="#!{{curThread}}/{{thrd.Number}}" class="reply"><span class="brack">  [</span>Ответить<span class="brack">]</span></a> <button ng-if="Admin()" ng-click="delThr(thrd.Number)">X</button>
+      <br> <br>
+      {{thrd.msg}}
+    </div>
+    <div ng-repeat="msg in thrd.msgs" >
+    <div class="ans" ng-if="msg.text!=null">
+        <b>Аноним  {{msg.date}}  {{msg.time}}</b> <button ng-if="Admin()" ng-click="delMsg(thrd.Number,msg.text)">X</button> <br> <br>
+        {{msg.text}}
+      </div>
+    </div>
+    <hr>
+      </div>
+
+
+    </div>
+  </section>
+</div>
