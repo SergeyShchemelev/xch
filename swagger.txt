@@ -1,0 +1,98 @@
+swagger: '2.0'
+info: 
+  description: "This is an anonymous forum server"
+  version: "1.0.0"
+  title: "Xch"
+  contact:
+    email: "st050601@student.mail.ru"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+title: "https://xchget.azurewebsites.net"
+version: "1.0.0"
+host: 'xchget.azurewebsites.net'
+basePath: '/api/''
+schemes:
+  - https
+paths:
+/HttpTriggerJS1:
+   get:
+      operationId: "getMsgs"
+      description: "get threads and messages"
+      produces:
+        - "application/json"
+      consumes: 
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: '/request.json'
+      responses:
+        200:
+          description: "Successful operation"
+          schema:
+            $ref: '/answer.json'
+        500:
+          description: "Invalid input"
+  /HttpTriggerJS2:
+    post:
+      operationId: "setThread"
+      description: "create new thread"
+      produces:
+        - "application/json"
+      consumes: 
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: '/request.json'
+      responses:
+        200:
+          description: "Successful operation"
+        500:
+          description: "Invalid input"
+ /getMsg:
+    delete:
+      operationId: "delete"
+      description: "delete threads and messages"
+      produces:
+        - "application/json"
+      consumes: 
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: '/request.json'
+      responses:
+        200:
+          description: "Successful operation"
+        500:
+          description: "Invalid input"
+  /setMsg:
+    post:
+      operationId: "setMsg"
+      description: "set new message"
+      produces:
+        - "application/json"
+      consumes: 
+        - "application/json"
+      parameters:
+        - name: "body"
+          in: "body"
+          required: true
+          schema:
+            $ref: '/request.json'
+      responses:
+        200:
+          description: "Successful operation"
+        500:
+          description: "Invalid input"
+externalDocs:
+  description: "Find out more about Swagger"
+url: 'http://swagger.io'
